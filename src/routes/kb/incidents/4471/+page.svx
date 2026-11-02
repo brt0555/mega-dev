@@ -11,13 +11,15 @@ Ticket #4471 contains **412 distinct reports** about dates landing on the wrong 
 
 ## Two causes, two tickets
 
-| Cause | What happens | Reports |
-|---|---|---:|
-| `parser` | The shared parser reads month-first dates for tenants whose locale writes day-first. | **379** |
-| `hint` | The `booking-v3` form shows an `MM/DD/YYYY` hint to day-first tenants, but interprets the entered date using the tenant's day-first convention. | **33** |
+| Cause | What happens | Reports | Desk outcome |
+|---|---|---:|---|
+| `parser` | The shared parser reads month-first dates for tenants whose locale writes day-first. | **379** | **Fixed:** `fix(dates): parse dd/mm for eu locales` |
+| `hint` | The `booking-v3` form shows an `MM/DD/YYYY` hint to day-first tenants, but interprets the entered date using the tenant's day-first convention. | **33** | **Won't fix:** the `booking-v3` form was retired |
 
 The counts follow the tenant locale, booking form, and submission channel in the supplied KB logic. Intake tags are guesses, not root causes. The 33 `hint` reports are form submissions; the 379 `parser` reports include app, email, and form submissions.
 
 The desk flagged five reports as a one-day move. They remain included in the cause totals above; they are not a third cause.
+
+The desk update says #4471 is closed: the parser problem was fixed, while the hint problem will not be fixed because the `booking-v3` form was retired.
 
 <RenderStamp {signature} />

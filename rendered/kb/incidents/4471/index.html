@@ -13,12 +13,13 @@
 <header><h1>#4471 · two date-parsing causes</h1><p class="meta"><span>owner <b>support desk</b></span><span>known</span><span>reviewed 2026-11-02</span></p></header>
 <p>Ticket #4471 contains <strong>412 distinct reports</strong> about dates landing on the wrong day. The export has overlapping rows; each report ID is counted once.</p>
 <h2>Two causes, two tickets</h2>
-<table><thead><tr><th>Cause</th><th>What happens</th><th>Reports</th></tr></thead><tbody>
-<tr><td><code>parser</code></td><td>The shared parser reads month-first dates for tenants whose locale writes day-first.</td><td><strong>379</strong></td></tr>
-<tr><td><code>hint</code></td><td>The <code>booking-v3</code> form shows an <code>MM/DD/YYYY</code> hint to day-first tenants, but interprets the entered date using the tenant's day-first convention.</td><td><strong>33</strong></td></tr>
+<table><thead><tr><th>Cause</th><th>What happens</th><th>Reports</th><th>Desk outcome</th></tr></thead><tbody>
+<tr><td><code>parser</code></td><td>The shared parser reads month-first dates for tenants whose locale writes day-first.</td><td><strong>379</strong></td><td><strong>Fixed:</strong> <code>fix(dates): parse dd/mm for eu locales</code></td></tr>
+<tr><td><code>hint</code></td><td>The <code>booking-v3</code> form shows an <code>MM/DD/YYYY</code> hint to day-first tenants, but interprets the entered date using the tenant's day-first convention.</td><td><strong>33</strong></td><td><strong>Won't fix:</strong> the <code>booking-v3</code> form was retired</td></tr>
 </tbody></table>
 <p>The counts follow the tenant locale, booking form, and submission channel in the supplied KB logic. Intake tags are guesses, not root causes. The 33 <code>hint</code> reports are form submissions; the 379 <code>parser</code> reports include app, email, and form submissions.</p>
 <p>The desk flagged five reports as a one-day move. They remain included in the cause totals above; they are not a third cause.</p>
+<p>The desk update says #4471 is closed: the parser problem was fixed, while the hint problem will not be fixed because the <code>booking-v3</code> form was retired.</p>
 <p class="stamp">desk ref <b>DR-W4H1-B8ME</b></p>
 <footer>Pages are written by people. Tables and charts are built from data at render time.</footer>
 </article></body></html>
