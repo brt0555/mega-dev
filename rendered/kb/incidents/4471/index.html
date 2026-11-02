@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>#4471 · two date-parsing causes · support kb</title>
+<style>
+:root{color-scheme:light dark;--bg:#fbfaf7;--fg:#1d1d1b;--muted:#6b6a66;--line:#e3e0d8;--accent:#2f6f5e} @media(prefers-color-scheme:dark){:root{--bg:#171716;--fg:#ecebe6;--muted:#9c9a93;--line:#34332f;--accent:#6fbfa6}}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}.kb{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}a{color:var(--accent);text-decoration:none}.crumb{font:0.8rem ui-monospace,monospace;color:var(--muted)}h1{margin:.25rem 0 .5rem;line-height:1.2}.meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--muted);font-size:.85rem}table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}th,td{border-bottom:1px solid var(--line);padding:.35rem .5rem;text-align:left}code,.stamp{font-family:ui-monospace,monospace}.stamp{margin:2rem 0 0;color:var(--muted);font-size:.85rem}footer{margin-top:3rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body><article class="kb">
+<a class="crumb" href="/kb">support desk · kb</a>
+<header><h1>#4471 · two date-parsing causes</h1><p class="meta"><span>owner <b>support desk</b></span><span>known</span><span>reviewed 2026-11-02</span></p></header>
+<p>Ticket #4471 contains <strong>412 distinct reports</strong> about dates landing on the wrong day. The export has overlapping rows; each report ID is counted once.</p>
+<h2>Two causes, two tickets</h2>
+<table><thead><tr><th>Cause</th><th>What happens</th><th>Reports</th></tr></thead><tbody>
+<tr><td><code>parser</code></td><td>The shared parser reads month-first dates for tenants whose locale writes day-first.</td><td><strong>379</strong></td></tr>
+<tr><td><code>hint</code></td><td>The <code>booking-v3</code> form shows an <code>MM/DD/YYYY</code> hint to day-first tenants, but interprets the entered date using the tenant's day-first convention.</td><td><strong>33</strong></td></tr>
+</tbody></table>
+<p>The counts follow the tenant locale, booking form, and submission channel in the supplied KB logic. Intake tags are guesses, not root causes. The 33 <code>hint</code> reports are form submissions; the 379 <code>parser</code> reports include app, email, and form submissions.</p>
+<p>The desk flagged five reports as a one-day move. They remain included in the cause totals above; they are not a third cause.</p>
+<p class="stamp">desk ref <b>DR-W4H1-B8ME</b></p>
+<footer>Pages are written by people. Tables and charts are built from data at render time.</footer>
+</article></body></html>

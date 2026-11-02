@@ -1,0 +1,23 @@
+---
+layout: runbook
+title: '#4471 · two date-parsing causes'
+owner: support desk
+status: known
+reviewed: 2026-11-02
+signature: brt0555
+---
+
+Ticket #4471 contains **412 distinct reports** about dates landing on the wrong day. The export has overlapping rows; each report ID is counted once.
+
+## Two causes, two tickets
+
+| Cause | What happens | Reports |
+|---|---|---:|
+| `parser` | The shared parser reads month-first dates for tenants whose locale writes day-first. | **379** |
+| `hint` | The `booking-v3` form shows an `MM/DD/YYYY` hint to day-first tenants, but interprets the entered date using the tenant's day-first convention. | **33** |
+
+The counts follow the tenant locale, booking form, and submission channel in the supplied KB logic. Intake tags are guesses, not root causes. The 33 `hint` reports are form submissions; the 379 `parser` reports include app, email, and form submissions.
+
+The desk flagged five reports as a one-day move. They remain included in the cause totals above; they are not a third cause.
+
+<RenderStamp {signature} />
