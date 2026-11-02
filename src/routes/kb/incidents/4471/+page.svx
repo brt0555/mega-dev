@@ -4,7 +4,7 @@ title: '#4471 · two date-parsing causes'
 owner: support desk
 status: known
 reviewed: 2026-11-02
-signature: brt0555
+signature: v1.eyJzdWIiOiIzMTMxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2Mjg1OTAsImV4cCI6MTc5MzcxNDk5MH0.zSMGD18-FYNxDABW5ylUCGT84R5OLHnhSApPkKiLh7E
 ---
 
 Ticket #4471 contains **412 distinct reports** about dates landing on the wrong day. The export has overlapping rows; each report ID is counted once.
